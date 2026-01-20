@@ -4,12 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joaquin Loza - Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .contact-item:hover::after {
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-content p {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category h3 {
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #1a1a1a;
+            color: #f5f5f5;
+            padding: 4px 12px;
+            font-size: 0.75em;
+            font-weight: 400;
+            border-radius: 2px;
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .project-card {
+            padding: 24px 0;
+            border-bottom: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .project-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 300;
+            font-size: 0.9em;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tech-tag {
+            background: transparent;
+            color: #666;
+            padding: 2px 8px;
+            border: 1px solid #ddd;
+            font-size: 0.75em;
+            border-radius: 2px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 400;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .project-link::before {
+            content: '→ ';
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .project-link:hover::before {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header class="fade-in">
-            <img class="profile-img" src="https://sandbox.habbo.com/habbo-imaging/avatarimage?size=sm&figure=hd-3091-1-0.ha-1002-78-0.ea-1404-90-64.fa-5387-0-0.&gesture=std&action=std&direction=2&head_direction=2&headonly=1&gender=M" alt="Profile">
             <h1>Joaquin Loza</h1>
             <p class="subtitle">Developer & Problem Solver</p>
             <div class="contact-info">
@@ -20,7 +236,7 @@
         </header>
 
         <section class="section fade-in">
-            <h2>About Me</h2>
+            <h2>About</h2>
             <div class="about-content">
                 <p>I'm a engineering student at UNICEN, on my 4th year, i love web desing, data science and machine learning. also have a big interest in music, design and economy.</p>
             </div>
@@ -40,11 +256,12 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Programming</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">JAVA</span>
                         <span class="skill-tag">Javascript</span>
+                        <span class="skill-tag">Go</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -55,7 +272,7 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools & Others</h3>
+                    <h3>Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">Excel</span>
@@ -65,7 +282,7 @@
         </section>
 
         <section class="section fade-in">
-            <h2>Featured Projects</h2>
+            <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <h3>Data Science</h3>
@@ -74,7 +291,20 @@
                         <span class="tech-tag">Python</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://colab.research.google.com/drive/1ozf_qC4TibBhcoRgWeD3XODKOL4RvTF8" class="project-link">Colab</a>
+                        <a href="https://colab.research.google.com/drive/1ozf_qC4TibBhcoRgWeD3XODKOL4RvTF8" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>3D Web Modeler</h3>
+                    <p>3D Web modeler on web, inspired by blender.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Javascript</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Threejs</span>
+                        <span class="tech-tag">HTML</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://estebantambos.com.ar/" class="project-link">View Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -86,7 +316,7 @@
                         <span class="tech-tag">CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://www.chaotandil.com.ar/" class="project-link">Web Page</a>
+                        <a href="https://www.chaotandil.com.ar/" class="project-link">View Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -99,7 +329,7 @@
                         <span class="tech-tag">HTML</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://estebantambos.com.ar/" class="project-link">Web Page</a>
+                        <a href="https://estebantambos.com.ar/" class="project-link">View Project</a>
                     </div>
                 </div>
             </div>
@@ -112,13 +342,52 @@
                     <h3>Fundamentals of Deep Learning</h3>
                     <p>A workshop given by NVIDIA.</p>
                     <div class="project-links">
-                        <a href="https://learn.nvidia.com/certificates?id=ec4ff1b02c4c443d849d43da1214163f" class="project-link">Certificate</a>
+                        <a href="https://learn.nvidia.com/certificates?id=ec4ff1b02c4c443d849d43da1214163f" class="project-link">View Certificate</a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <script src="index.js"></script>
+    <script>
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        animateOnScroll();
+
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        window.addEventListener('load', () => {
+            const subtitle = document.querySelector('.subtitle');
+            const originalText = subtitle.textContent;
+            setTimeout(() => {
+                typeWriter(subtitle, originalText, 80);
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
